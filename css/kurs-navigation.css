@@ -1,0 +1,105 @@
+/* Wird ausschließlich im Shadow DOM der Kursnavigation geladen. */
+:host {
+  all: initial;
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2147483647;
+  max-width: calc(100vw - 24px);
+  color-scheme: light;
+  font: 12px/1.4 system-ui, sans-serif;
+  color: #4b5563;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bar,
+nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.bar {
+  padding: 4px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: #f9fafb;
+  box-shadow: 0 1px 5px #00000012;
+}
+
+[hidden] {
+  display: none;
+}
+
+a,
+button,
+select,
+.step {
+  min-height: 30px;
+  border: 0;
+  border-radius: 4px;
+  font: inherit;
+  color: inherit;
+}
+
+.step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 4px 7px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+select {
+  width: 250px;
+  min-width: 0;
+  padding: 4px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  cursor: pointer;
+}
+
+button {
+  flex: 0 0 30px;
+  padding: 4px;
+  background: transparent;
+  cursor: pointer;
+}
+
+a:hover,
+button:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 1px;
+}
+
+[aria-disabled="true"] {
+  color: #9ca3af;
+  cursor: default;
+}
+
+@media (max-width: 540px) {
+  .step-label {
+    display: none;
+  }
+
+  select {
+    width: 230px;
+  }
+}
+
+@media print {
+  :host {
+    display: none;
+  }
+}
